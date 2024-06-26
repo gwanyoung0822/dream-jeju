@@ -7,6 +7,7 @@
 a{
     text-decoration: none;
     color: #333;
+    display: block;
 }
 ul,li{
     list-style: none;
@@ -15,7 +16,7 @@ ul,li{
     width: 1200px;
     height: 800px;
     /* background-color: lightblue; */
-    margin: 50px auto;
+    margin: 0px auto;
 }
 .header{
     width: 100%;
@@ -33,6 +34,7 @@ ul,li{
     color: #fff;
     text-align: center;
     line-height: 100px;
+    font-family: 'Times New Roman', Times, serif;
 }
 /* 상단 메뉴 */
 .top_menu{
@@ -40,25 +42,60 @@ ul,li{
     position: relative;
     width: 950px;
     height: 100%;
+    /* background-color: aqua; */
 }
-.top_menu ul{
-    list-style: none;
-}
-.top_menu ul{
+.top_menu > .menu{
+    /* height: 50px; */
     position: absolute;
     bottom: 0;
-    left: 0;
-    padding: 20px;
+    left: 50px;
+    /* background-color: #353333; */
 }
-.top_menu ul li{
+.top_menu > .menu > li{
     float: left;
+    height: 50px;
+    width: 200px;
 }
-.top_menu ul li a{
+.top_menu > .menu > li > a{
     color: #fff;
     font-size: 17px;
-    text-decoration: none;
-    margin: 0 70px;
+    /* text-decoration: none; */
+    text-align: center;
+    /* margin: 0 70px; */
     font-weight: bold;
+    line-height: 50px;
+    /* height: 40px; */
+    transition: all 0.2s;
+}
+/* 서브메뉴 */
+.submenu{
+    height: 150px;
+    background-color: #fff;
+    position: relative;
+    display: none;
+}
+.submenu > li{
+    height: 50px;
+    width: 200px;
+    text-align: center;
+}
+.submenu > li > a{
+    color: rgb(53, 88, 182);
+    line-height: 50px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+/* 메뉴 호버 */
+.menu>li:hover >a{
+    background-color: #fff;
+    color: rgb(53, 88, 182);
+}
+.menu>li:hover .submenu{
+    display: block;
+}
+.submenu>li>a:hover{
+    background-color: rgb(53, 88, 182);
+    color: #fff;
 }
 /* 메인 부분 */
 .main{
@@ -84,26 +121,39 @@ ul,li{
     /* background-color: lightslategray; */
     float: left;
 }
-.notice p{
+.notice .notice_text{
     float: left;
     width: 100px;
     height: 45px;
     text-align: center;
     line-height: 45px;
-    background-color: #333;
-    color: #fff;
+    background-color: rgba(0,0,0,0.1);
+    color: rgb(197, 0, 0);
+    font-weight: bold;
+    margin-top: 20px;
+}
+.notice .gallery_text{
+    float: left;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    background-color: #fff;
+    color: rgba(0,0,0,0.4);
     font-weight: bold;
     margin-top: 20px;
 }
 .notice ul{
     clear: both;
     padding-left: 10px;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(0,0,0,0.2);
 }
 .notice ul li{
     margin: 20px;
-    list-style: disc;
-    
+    list-style: disc;   
+}
+.notice ul li a:hover{
+    font-weight: bold;
 }
 /* 아이콘 */
 .picture{
@@ -122,13 +172,28 @@ ul,li{
 /* .picture ul li:nth-child(2){
     margin: 0 35px;
 } */
-.picture ul li img{
+ .picture ul li a .img{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
     border-radius: 50%;
+    margin: 0 25px;
+ }
+.picture ul li a .img img{
+    /* border-radius: 50%; */
+    width: 100%;
+    transition: all 0.5s;
 }
 .picture ul li p{
     font-weight: 500;
     font-size: 15px;
     margin-top: 10px;
+}
+.picture ul li a:hover p{
+    font-weight: bold;
+}
+.picture ul li a:hover img{
+    transform: scale(1.2);
 }
 /* 하단 */
 .footer{
@@ -179,11 +244,10 @@ ul,li{
 }
 .sns{
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translatey(-50%);
-
 }
-.ft_right img{
-
+.sns > a{
+    float: left;
 }
